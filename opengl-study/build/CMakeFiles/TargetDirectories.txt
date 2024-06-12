@@ -1,0 +1,3 @@
+/Users/victorsoares/Desktop/xcode-projects/opengl-study/opengl-study/build/CMakeFiles/template.dir
+/Users/victorsoares/Desktop/xcode-projects/opengl-study/opengl-study/build/CMakeFiles/edit_cache.dir
+/Users/victorsoares/Desktop/xcode-projects/opengl-study/opengl-study/build/CMakeFiles/rebuild_cache.dir

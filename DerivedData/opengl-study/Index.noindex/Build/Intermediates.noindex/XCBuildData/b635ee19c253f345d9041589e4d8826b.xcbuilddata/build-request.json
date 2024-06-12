@@ -1,0 +1,60 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "f92f8358851cce023ad37b493ef535726ded7c4cb8de93841de5745b45d7c3a1"
+    }
+  ],
+  "containerPath" : "/Users/victorsoares/Desktop/xcode-projects/opengl-study/opengl-study.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "macosx",
+      "sdk" : "macosx14.0",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "arm64e",
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/victorsoares/Desktop/xcode-projects/opengl-study/DerivedData/opengl-study/Index.noindex/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/victorsoares/Desktop/xcode-projects/opengl-study/DerivedData/opengl-study/Index.noindex/Build/Products",
+      "derivedDataPath" : "/Users/victorsoares/Desktop/xcode-projects/opengl-study/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/victorsoares/Desktop/xcode-projects/opengl-study/DerivedData/opengl-study/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/victorsoares/Desktop/xcode-projects/opengl-study/DerivedData/opengl-study/Index.noindex/PrecompiledHeaders",
+      "indexRegularBuildIntermediatesPath" : "/Users/victorsoares/Desktop/xcode-projects/opengl-study/DerivedData/opengl-study/Build/Intermediates.noindex",
+      "indexRegularBuildProductsPath" : "/Users/victorsoares/Desktop/xcode-projects/opengl-study/DerivedData/opengl-study/Build/Products",
+      "pchPath" : "/Users/victorsoares/Desktop/xcode-projects/opengl-study/DerivedData/opengl-study/Index.noindex/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "utility",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
