@@ -16,6 +16,8 @@ public:
     Vector3(const Vector3&);
  
     
+    void print() const;
+    
     float magnitude() const;
     float sqrtMagnitude() const;
     Vector3 normalized() const;

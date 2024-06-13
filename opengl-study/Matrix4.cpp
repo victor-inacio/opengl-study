@@ -7,6 +7,11 @@
 
 #include "Matrix4.hpp"
 #include <math.h>
+#include <iostream>
+
+Matrix4::Matrix4() {
+    
+}
 
 Matrix4::Matrix4(float m00, float m01, float m02, float m03, float m10, float m11, float m12, float m13, float m20, float m21, float m22, float m23, float m30, float m31, float m32, float m33) {
     
@@ -41,8 +46,22 @@ Matrix4::Matrix4(const Matrix4& matrix) {
     }
 }
 
-Matrix4 Matrix4::identity() {
+void Matrix4::print() const{
     
+    for (int i = 0; i < 4; i++) {
+        std::cout << "[";
+        for (int j = 0; j < 4; j++) {
+            std::cout << m[i][j];
+            if (j < 3) {
+                std::cout << ", ";
+            }
+        }
+        std::cout << "]" << std::endl;
+    }
+    
+}
+
+Matrix4 Matrix4::identity() {
     Matrix4 temp;
     
     for (int i = 0; i < temp.rows; i++) {
@@ -96,6 +115,10 @@ Matrix4 Matrix4::rotateZ(float radians) {
 }
 
 float* Matrix4::operator[](const unsigned int index) {
+    return m[index];
+}
+
+const float* Matrix4::operator[](const unsigned int index) const{
     return m[index];
 }
 
@@ -164,6 +187,7 @@ Matrix4& Matrix4::operator=(const Matrix4& other) {
     if (this == &other) {
         return *this;
     }
+    
     
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {

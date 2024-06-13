@@ -1,16 +1,24 @@
-//
-//  Vector3.cpp
-//  opengl-study
-//
-//  Created by Victor Soares on 11/06/24.
-//
 
 #include "Vector3.hpp"
 #include <math.h>
+#include <iostream>
 
 Vector3::Vector3(float x, float y, float z): x(x), y(y), z(z) {}
 
 Vector3::Vector3(Vector3 const &other): x(other.x), y(other.y), z(other.z) {}
+
+void Vector3::print() const {
+    std::cout << "(";
+    
+    std::cout << x;
+    std::cout << ", ";
+    
+    std::cout << y;
+    std::cout << ", ";
+    
+    std::cout << z;
+    std::cout << ")" << std::endl;
+}
 
 float Vector3::magnitude() const {
     return sqrt(x * x + y * y + z * z);

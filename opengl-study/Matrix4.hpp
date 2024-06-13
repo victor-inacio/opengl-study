@@ -15,7 +15,9 @@ class Matrix4 {
 public:
     Matrix4();
     Matrix4(float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float);
-    Matrix4(const Matrix4&)
+    Matrix4(const Matrix4&);
+    
+    void print() const;
     
     static Matrix4 identity();
     static Matrix4 rotateX(float);
