@@ -7,7 +7,6 @@
 
 #ifndef Vector3_hpp
 #define Vector3_hpp
-#include <stdio.h>
 
 class Vector3 {
 public:
@@ -15,7 +14,7 @@ public:
     
     Vector3(float,float,float);
     Vector3(const Vector3&);
-    ~Vector3();
+ 
     
     float magnitude() const;
     float sqrtMagnitude() const;

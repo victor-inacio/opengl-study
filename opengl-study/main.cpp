@@ -2,6 +2,7 @@
 #define GL_SILENCE_DEPRECATION
 #include <GLFW/glfw3.h>
 #include <OpenGL/gl3.h>
+#include "Shader.hpp"
 using namespace std;
 
 void key_pressed(GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -45,6 +46,7 @@ int main()
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glViewport(0, 0, width, height);
     
+    Shader shader("vertex.sh", "fragment.sh");
     
     while (!glfwWindowShouldClose(window)) {
         

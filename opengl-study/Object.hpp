@@ -17,20 +17,20 @@
 class Object {
     
 public:
-    Mesh mesh;
+   
     Shader shader;
     GLuint VAO;
     GLuint VBO;
-    
+    GLuint EBO;
     
     Object(Mesh, Shader);
     ~Object();
     
     void render();
     void setShader(Shader);
-    
+    void setMesh(Mesh);
 private:
-    
+    Mesh mesh;
 };
 
 #endif /* Object_hpp */

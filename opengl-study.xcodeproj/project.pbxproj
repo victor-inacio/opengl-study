@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		98991BF42C173E87001EC642 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98991BF22C173E87001EC642 /* Shader.cpp */; };
-		98991BFA2C18AA29001EC642 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98991BF82C18AA29001EC642 /* Mesh.cpp */; };
-		98991BFD2C18AAC2001EC642 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98991BFB2C18AAC2001EC642 /* Vector3.cpp */; };
-		98991C002C18BAFC001EC642 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98991BFE2C18BAFC001EC642 /* Object.cpp */; };
+		985349F42C1A20250073FD4E /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98991BFB2C18AAC2001EC642 /* Vector3.cpp */; };
+		985349F72C1A256B0073FD4E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985349F62C1A256B0073FD4E /* OpenGL.framework */; };
+		985349F92C1A25700073FD4E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985349F82C1A25700073FD4E /* IOKit.framework */; };
+		985349FB2C1A25760073FD4E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985349FA2C1A25760073FD4E /* CoreAudio.framework */; };
+		985349FD2C1A25840073FD4E /* libglfw.3.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 985349FC2C1A25840073FD4E /* libglfw.3.4.dylib */; };
+		985349FF2C1A25910073FD4E /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 985349FE2C1A25910073FD4E /* libglfw3.a */; };
+		98534A012C1A2D390073FD4E /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98991BF22C173E87001EC642 /* Shader.cpp */; };
+		98534A022C1A30E80073FD4E /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98991BFE2C18BAFC001EC642 /* Object.cpp */; };
+		98534A032C1A45210073FD4E /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98991BF82C18AA29001EC642 /* Mesh.cpp */; };
+		98534A062C1A8F040073FD4E /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98534A042C1A8F040073FD4E /* Matrix4.cpp */; };
 		9899CA012C156C40001EC642 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9899CA002C156C40001EC642 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -27,17 +33,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		985349F32C1A1FEB0073FD4E /* opengl-study */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "opengl-study"; sourceTree = BUILT_PRODUCTS_DIR; };
+		985349F62C1A256B0073FD4E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		985349F82C1A25700073FD4E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		985349FA2C1A25760073FD4E /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		985349FC2C1A25840073FD4E /* libglfw.3.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.4.dylib; path = ../../../../../opt/homebrew/Cellar/glfw/3.4/lib/libglfw.3.4.dylib; sourceTree = "<group>"; };
+		985349FE2C1A25910073FD4E /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../../opt/homebrew/Cellar/glfw/3.4/lib/libglfw3.a; sourceTree = "<group>"; };
+		98534A002C1A2A880073FD4E /* fragment.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = fragment.sh; sourceTree = "<group>"; };
+		98534A042C1A8F040073FD4E /* Matrix4.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix4.cpp; sourceTree = "<group>"; };
+		98534A052C1A8F040073FD4E /* Matrix4.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Matrix4.hpp; sourceTree = "<group>"; };
 		98991BF22C173E87001EC642 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		98991BF32C173E87001EC642 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		98991BF62C173FE5001EC642 /* vertex.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = vertex.sh; sourceTree = "<group>"; };
-		98991BF72C188C6B001EC642 /* fragment.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = fragment.sh; sourceTree = "<group>"; };
 		98991BF82C18AA29001EC642 /* Mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mesh.cpp; sourceTree = "<group>"; };
 		98991BF92C18AA29001EC642 /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mesh.hpp; sourceTree = "<group>"; };
 		98991BFB2C18AAC2001EC642 /* Vector3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
 		98991BFC2C18AAC2001EC642 /* Vector3.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
 		98991BFE2C18BAFC001EC642 /* Object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		98991BFF2C18BAFC001EC642 /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
-		9899C9FD2C156C40001EC642 /* opengl-study */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = "opengl-study"; path = "/Users/victorsoares/Desktop/xcode-projects/opengl-study/build/Debug/opengl-study"; sourceTree = "<absolute>"; };
 		9899CA002C156C40001EC642 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,12 +59,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				985349FF2C1A25910073FD4E /* libglfw3.a in Frameworks */,
+				985349FD2C1A25840073FD4E /* libglfw.3.4.dylib in Frameworks */,
+				985349FB2C1A25760073FD4E /* CoreAudio.framework in Frameworks */,
+				985349F92C1A25700073FD4E /* IOKit.framework in Frameworks */,
+				985349F72C1A256B0073FD4E /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		985349F52C1A256B0073FD4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				985349FE2C1A25910073FD4E /* libglfw3.a */,
+				985349FC2C1A25840073FD4E /* libglfw.3.4.dylib */,
+				985349FA2C1A25760073FD4E /* CoreAudio.framework */,
+				985349F82C1A25700073FD4E /* IOKit.framework */,
+				985349F62C1A256B0073FD4E /* OpenGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		98991BF52C173FB6001EC642 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				9899C9FF2C156C40001EC642 /* opengl-study */,
+				985349F32C1A1FEB0073FD4E /* opengl-study */,
+				985349F52C1A256B0073FD4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,13 +106,15 @@
 				9899CA002C156C40001EC642 /* main.cpp */,
 				98991BF22C173E87001EC642 /* Shader.cpp */,
 				98991BF32C173E87001EC642 /* Shader.hpp */,
-				98991BF72C188C6B001EC642 /* fragment.sh */,
 				98991BF82C18AA29001EC642 /* Mesh.cpp */,
 				98991BF92C18AA29001EC642 /* Mesh.hpp */,
 				98991BFB2C18AAC2001EC642 /* Vector3.cpp */,
 				98991BFC2C18AAC2001EC642 /* Vector3.hpp */,
 				98991BFE2C18BAFC001EC642 /* Object.cpp */,
 				98991BFF2C18BAFC001EC642 /* Object.hpp */,
+				98534A002C1A2A880073FD4E /* fragment.sh */,
+				98534A042C1A8F040073FD4E /* Matrix4.cpp */,
+				98534A052C1A8F040073FD4E /* Matrix4.hpp */,
 			);
 			path = "opengl-study";
 			sourceTree = "<group>";
@@ -102,7 +136,7 @@
 			);
 			name = "opengl-study";
 			productName = "opengl-study";
-			productReference = 9899C9FD2C156C40001EC642 /* opengl-study */;
+			productReference = 985349F32C1A1FEB0073FD4E /* opengl-study */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -142,10 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98991BFA2C18AA29001EC642 /* Mesh.cpp in Sources */,
-				98991BF42C173E87001EC642 /* Shader.cpp in Sources */,
-				98991BFD2C18AAC2001EC642 /* Vector3.cpp in Sources */,
-				98991C002C18BAFC001EC642 /* Object.cpp in Sources */,
+				98534A032C1A45210073FD4E /* Mesh.cpp in Sources */,
+				98534A022C1A30E80073FD4E /* Object.cpp in Sources */,
+				98534A012C1A2D390073FD4E /* Shader.cpp in Sources */,
+				98534A062C1A8F040073FD4E /* Matrix4.cpp in Sources */,
+				985349F42C1A20250073FD4E /* Vector3.cpp in Sources */,
 				9899CA012C156C40001EC642 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
