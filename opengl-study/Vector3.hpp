@@ -15,7 +15,6 @@ public:
     Vector3(float,float,float);
     Vector3(const Vector3&);
  
-    
     void print() const;
     
     float magnitude() const;

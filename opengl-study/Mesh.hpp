@@ -16,13 +16,14 @@ using namespace std;
 class Mesh {
 public:
     
-    Mesh(vector<Vector3>, vector<int>);
+    Mesh(vector<Vector3>&, vector<int>&);
   
     vector<Vector3> vertices;
     vector<int> indices;
     
-    void setVertices(vector<Vector3>);
-    void setIndices(vector<int>);
+    void setVertices(vector<Vector3>&);
+    void setIndices(vector<int>&);
+    
 private:
     
 };

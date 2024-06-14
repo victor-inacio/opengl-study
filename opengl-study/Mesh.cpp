@@ -6,16 +6,19 @@
 //
 
 #include "Mesh.hpp"
+#include <iostream>
+using namespace std;
 
-Mesh::Mesh(vector<Vector3> vertices, vector<int> indices) {
+Mesh::Mesh(vector<Vector3>& vertices, vector<int>& indices) {
     setVertices(vertices);
     setIndices(indices);
 }
 
-void Mesh::setVertices(vector<Vector3> vertices) {
+void Mesh::setVertices(vector<Vector3>& vertices) {
     this->vertices = vertices;
 }
 
-void Mesh::setIndices(vector<int> indices) {
+void Mesh::setIndices(vector<int>& indices) {
     this->indices = indices;
 }
+

@@ -27,8 +27,6 @@ Shader::Shader(string vShaderPath, string fShaderPath) {
         vShaderFile.open(vShaderPath);
         fShaderFile.open(fShaderPath);
         
-    
-        
         stringstream vShaderStream, fShaderStream;
         
         vShaderStream << vShaderFile.rdbuf();
@@ -72,7 +70,7 @@ Shader::Shader(string vShaderPath, string fShaderPath) {
 }
 
 Shader::~Shader() {
-    glDeleteProgram(programID);
+//    glDeleteProgram(programID);
 }
 
 void Shader::use() const {

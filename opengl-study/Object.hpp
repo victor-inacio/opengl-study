@@ -23,12 +23,16 @@ public:
     GLuint VBO;
     GLuint EBO;
     
-    Object(Mesh, Shader);
+    Object(Mesh&, Shader&);
     ~Object();
     
+    Mesh& getMesh();
+    
     void render();
-    void setShader(Shader);
-    void setMesh(Mesh);
+    void setShader(Shader&);
+    void setMesh(Mesh&);
+    
+    
 private:
     Mesh mesh;
 };
