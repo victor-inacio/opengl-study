@@ -10,6 +10,7 @@
 
 #include "Mesh.hpp"
 #include "Shader.hpp"
+#include "Matrix4.hpp"
 #include <GLFW/glfw3.h>
 #include <OpenGL/gl.h>
 
@@ -22,6 +23,8 @@ public:
     GLuint VAO;
     GLuint VBO;
     GLuint EBO;
+    
+    Matrix4 viewMatrix;
     
     Object(Mesh&, Shader&);
     ~Object();

@@ -9,6 +9,8 @@
 
 Object::Object(Mesh& mesh, Shader& shader): mesh(mesh), shader(shader) {
     
+    viewMatrix = Matrix4::identity();
+    
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
     
@@ -60,6 +62,7 @@ void Object::setMesh(Mesh& mesh) {
 
 void Object::render() {
     shader.use();
+    shader.setMat4("transform", viewMatrix);
     glBindVertexArray(VAO);
     
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
