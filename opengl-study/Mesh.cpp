@@ -22,3 +22,24 @@ void Mesh::setIndices(vector<int>& indices) {
     this->indices = indices;
 }
 
+void Mesh::printVertices() const {
+    int index = 0;
+    for (Vector3 vec : vertices) {
+        cout << index + 1 << ": ";
+        vec.print();
+        
+        index++;
+    }
+}
+
+void Mesh::printTransformedVertices(const Matrix4& matrix) const{
+    int index = 0;
+    for (Vector3 vec : vertices) {
+        Vector3 transformed = matrix * vec;
+        cout << index + 1 << ": ";
+        transformed.print();
+        
+        index++;
+    }
+}
+

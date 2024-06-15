@@ -11,6 +11,7 @@
 #include <array>
 #include <vector>
 #include "Vector3.hpp"
+#include "Matrix4.hpp"
 using namespace std;
 
 class Mesh {
@@ -23,7 +24,8 @@ public:
     
     void setVertices(vector<Vector3>&);
     void setIndices(vector<int>&);
-    
+    void printVertices() const;
+    void printTransformedVertices(const Matrix4&) const;
 private:
     
 };
