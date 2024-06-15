@@ -76,7 +76,6 @@ Shader::~Shader() {
 
 void Shader::use() {
     glUseProgram(programID);
-
 }
 
 void Shader::checkPossibleErrors(const GLuint id, const string type) const {
@@ -112,18 +111,16 @@ void Shader::setVec3(string name, Vector3& vec) const {
 }
 
 void Shader::setMat4(string name, Matrix4& matrix) const {
-    
+
     GLint location = glGetUniformLocation(programID, name.c_str());
     
     float ptr[16];
     
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            ptr[4 * i + j] = matrix[i][j];
+    for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < 4; i++) {
+            ptr[4 * j + i] = matrix[i][j];
         }
     }
     
-    
     glUniformMatrix4fv(location, 1, GL_FALSE, ptr);
-    
 }
