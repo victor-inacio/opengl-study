@@ -23,6 +23,9 @@ public:
     static Matrix4 rotateX(float);
     static Matrix4 rotateY(float);
     static Matrix4 rotateZ(float);
+    static Matrix4 scale(const Vector3&);
+    
+    static Matrix4 translate(const Vector3&);
     
     Matrix4& operator=(const Matrix4&);
     

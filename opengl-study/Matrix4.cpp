@@ -114,6 +114,27 @@ Matrix4 Matrix4::rotateZ(float radians) {
     return temp;
 }
 
+Matrix4 Matrix4::scale(const Vector3 & scale) {
+    
+    Matrix4 temp = Matrix4::identity();
+    
+    temp[0][0] = scale.x;
+    temp[1][1] = scale.y;
+    temp[2][2] = scale.z;
+    
+    return temp;
+}
+
+Matrix4 Matrix4::translate(const Vector3 & vector) {
+    Matrix4 temp = Matrix4::identity();
+    
+    temp[0][3] = vector.x;
+    temp[1][3] = vector.y;
+    temp[2][3] = vector.z;
+    
+    return temp;
+}
+
 float* Matrix4::operator[](const unsigned int index) {
     return m[index];
 }
