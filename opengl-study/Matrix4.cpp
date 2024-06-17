@@ -39,9 +39,7 @@ Matrix4::Matrix4(float m00, float m01, float m02, float m03, float m10, float m1
 Matrix4::Matrix4(const Matrix4& matrix) {
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
-            if (i == j) {
-                m[i][j] = matrix[i][j];
-            }
+            m[i][j] = matrix[i][j];
         }
     }
 }
@@ -131,6 +129,25 @@ Matrix4 Matrix4::translate(const Vector3 & vector) {
     temp[0][3] = vector.x;
     temp[1][3] = vector.y;
     temp[2][3] = vector.z;
+    
+    return temp;
+}
+
+Matrix4 Matrix4::perspective(float fov, float aspectRatio, float zNear, float zFar) {
+    
+    Matrix4 temp = Matrix4::identity();
+    
+    float halfTan = tan(fov / 2.0f);
+    
+    temp[0][0] = 1 / (aspectRatio * halfTan);
+    temp[1][1] = 1 / halfTan;
+    
+    temp[2][2] = (-zNear - zFar) / (zNear - zFar);
+    
+    temp[2][3] = (2 * zNear * zFar) / (zNear - zFar);
+    
+    temp[3][2] = 1.0f;
+    temp[3][3] = 0.0f;
     
     return temp;
 }

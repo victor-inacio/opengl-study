@@ -27,6 +27,8 @@ public:
     
     static Matrix4 translate(const Vector3&);
     
+    static Matrix4 perspective(float, float, float, float);
+    
     Matrix4& operator=(const Matrix4&);
     
     const float* operator[](const unsigned int) const;
