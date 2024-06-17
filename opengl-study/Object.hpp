@@ -25,6 +25,7 @@ public:
     GLuint EBO;
     
     Matrix4 viewMatrix;
+    Matrix4 perspectiveMatrix;
     
     Object(Mesh&, Shader&);
     ~Object();

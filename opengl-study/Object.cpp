@@ -6,10 +6,12 @@
 //
 
 #include "Object.hpp"
-
+#include <iostream>
+using namespace std;
 Object::Object(Mesh& mesh, Shader& shader): mesh(mesh), shader(shader) {
     
     viewMatrix = Matrix4::identity();
+    perspectiveMatrix = Matrix4::identity();
     
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
@@ -41,7 +43,6 @@ void Object::setMesh(Mesh& mesh) {
     
     float vertices[3 * this->mesh.vertices.size()];
     
-    
     int index = 0;
     
     for (Vector3 vec : this->mesh.vertices) {
@@ -51,7 +52,6 @@ void Object::setMesh(Mesh& mesh) {
         
         index += 3;
     }
-   
     
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -62,12 +62,14 @@ void Object::setMesh(Mesh& mesh) {
 
 void Object::render() {
     shader.use();
-    shader.setMat4("transform", viewMatrix);
-    glBindVertexArray(VAO);
     
+    shader.setMat4("modelMatrix", viewMatrix);
+    shader.setMat4("perspectiveMatrix", perspectiveMatrix);
+    
+    glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(getMesh().indices.size()), GL_UNSIGNED_INT, 0);
 }
 
 Mesh& Object::getMesh() {
