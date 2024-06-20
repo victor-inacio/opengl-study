@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		985349F42C1A20250073FD4E /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98991BFB2C18AAC2001EC642 /* Vector3.cpp */; };
 		985349F72C1A256B0073FD4E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985349F62C1A256B0073FD4E /* OpenGL.framework */; };
-		985349F92C1A25700073FD4E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985349F82C1A25700073FD4E /* IOKit.framework */; };
-		985349FB2C1A25760073FD4E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 985349FA2C1A25760073FD4E /* CoreAudio.framework */; };
 		985349FD2C1A25840073FD4E /* libglfw.3.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 985349FC2C1A25840073FD4E /* libglfw.3.4.dylib */; };
 		985349FF2C1A25910073FD4E /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 985349FE2C1A25910073FD4E /* libglfw3.a */; };
 		98534A012C1A2D390073FD4E /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98991BF22C173E87001EC642 /* Shader.cpp */; };
@@ -64,8 +62,6 @@
 			files = (
 				985349FF2C1A25910073FD4E /* libglfw3.a in Frameworks */,
 				985349FD2C1A25840073FD4E /* libglfw.3.4.dylib in Frameworks */,
-				985349FB2C1A25760073FD4E /* CoreAudio.framework in Frameworks */,
-				985349F92C1A25700073FD4E /* IOKit.framework in Frameworks */,
 				985349F72C1A256B0073FD4E /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

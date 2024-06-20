@@ -27,7 +27,7 @@ public:
     Matrix4 viewMatrix;
     Matrix4 perspectiveMatrix;
     
-    Object(Mesh&, Shader&);
+    Object(Mesh, Shader&);
     ~Object();
     
     Mesh& getMesh();

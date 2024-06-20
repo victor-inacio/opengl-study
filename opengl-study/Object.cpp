@@ -8,7 +8,7 @@
 #include "Object.hpp"
 #include <iostream>
 using namespace std;
-Object::Object(Mesh& mesh, Shader& shader): mesh(mesh), shader(shader) {
+Object::Object(Mesh mesh, Shader& shader): mesh(mesh), shader(shader) {
     
     viewMatrix = Matrix4::identity();
     perspectiveMatrix = Matrix4::identity();
@@ -22,8 +22,15 @@ Object::Object(Mesh& mesh, Shader& shader): mesh(mesh), shader(shader) {
     glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
+    
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
+    
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     
     setMesh(mesh);
     setShader(shader);
@@ -41,16 +48,26 @@ void Object::setShader(Shader& shader) {
 void Object::setMesh(Mesh& mesh) {
     this->mesh = mesh;
     
-    float vertices[3 * this->mesh.vertices.size()];
+    float vertices[6 * this->mesh.vertices.size()];
     
     int index = 0;
+    
     
     for (Vector3 vec : this->mesh.vertices) {
         vertices[index] = vec.x;
         vertices[index + 1] = vec.y;
         vertices[index + 2] = vec.z;
         
-        index += 3;
+        index += 6;
+    }
+    
+    index = 3;
+    for (Vector3 normal : this->mesh.normals) {
+        vertices[index] = normal.x;
+        vertices[index + 1] = normal.y;
+        vertices[index + 2] = normal.z;
+        
+        index += 6;
     }
     
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -58,6 +75,11 @@ void Object::setMesh(Mesh& mesh) {
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(this->mesh.indices[0]) * this->mesh.indices.size(), &this->mesh.indices[0], GL_STATIC_DRAW);
+    
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    
 }
 
 void Object::render() {
@@ -67,9 +89,9 @@ void Object::render() {
     shader.setMat4("perspectiveMatrix", perspectiveMatrix);
     
     glBindVertexArray(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(getMesh().indices.size()), GL_UNSIGNED_INT, 0);
+    glDrawArrays(GL_TRIANGLES, 0, getMesh().vertices.size());
+    
+    glBindVertexArray(0);
 }
 
 Mesh& Object::getMesh() {

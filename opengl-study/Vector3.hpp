@@ -21,6 +21,8 @@ public:
     float sqrtMagnitude() const;
     Vector3 normalized() const;
     Vector3& normalize();
+    static float angle(const Vector3&, const Vector3&);
+    static Vector3 cross(const Vector3&, const Vector3&);
     
     Vector3 operator+(Vector3);
     Vector3 operator+(float);

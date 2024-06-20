@@ -17,13 +17,15 @@ using namespace std;
 class Mesh {
 public:
     
-    Mesh(vector<Vector3>&, vector<int>&);
+    Mesh(vector<Vector3>&, vector<Vector3>&);
   
     vector<Vector3> vertices;
+    vector<Vector3> normals;
     vector<int> indices;
     
-    void setVertices(vector<Vector3>&);
-    void setIndices(vector<int>&);
+    void setVertices(const vector<Vector3>&);
+    void setNormals(const vector<Vector3>&);
+    void setIndices(const vector<int>&);
     void printVertices() const;
     void printTransformedVertices(const Matrix4&) const;
 private:

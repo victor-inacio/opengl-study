@@ -7,6 +7,20 @@ Vector3::Vector3(float x, float y, float z): x(x), y(y), z(z) {}
 
 Vector3::Vector3(Vector3 const &other): x(other.x), y(other.y), z(other.z) {}
 
+static float angle(const Vector3& vec1, const Vector3& vec2) {
+    
+    return acos((vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z) / (vec1.magnitude() * vec2.magnitude()));
+    
+}
+
+static Vector3 cross(const Vector3& vec1, const Vector3& vec2) {
+    return Vector3(
+                   vec1.y * vec2.z - vec1.z * vec2.y,
+                   vec1.z * vec2.x - vec1.x * vec2.z,
+                   vec1.x * vec2.y - vec1.y * vec2.x
+                   );
+}
+
 void Vector3::print() const {
     std::cout << "(";
     
