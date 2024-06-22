@@ -6,6 +6,7 @@
 //
 
 #include "Object.hpp"
+#include "include/stb_image.h"
 #include <iostream>
 using namespace std;
 Object::Object(Mesh mesh, Shader& shader): mesh(mesh), shader(shader) {
@@ -22,11 +23,40 @@ Object::Object(Mesh mesh, Shader& shader): mesh(mesh), shader(shader) {
     glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    unsigned int texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    
+    
+    
+    int width, height, channels;
+    unsigned char* data = stbi_load("images/stone.png", &width, &height, &channels, 0);
+    
+    if (data) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        cout << "Error when loading texture" << endl;
+    }
+    
+    stbi_image_free(data);
+    
+    GLsizei stride = 8 * sizeof(float);
+    
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0);
     glEnableVertexAttribArray(0);
     
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, stride, (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
+    
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, stride, (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
     
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -48,17 +78,17 @@ void Object::setShader(Shader& shader) {
 void Object::setMesh(Mesh& mesh) {
     this->mesh = mesh;
     
-    float vertices[6 * this->mesh.vertices.size()];
+    float vertices[8 * this->mesh.vertices.size()];
     
     int index = 0;
-    
+    int stride = 8;
     
     for (Vector3 vec : this->mesh.vertices) {
         vertices[index] = vec.x;
         vertices[index + 1] = vec.y;
         vertices[index + 2] = vec.z;
         
-        index += 6;
+        index += stride;
     }
     
     index = 3;
@@ -67,7 +97,14 @@ void Object::setMesh(Mesh& mesh) {
         vertices[index + 1] = normal.y;
         vertices[index + 2] = normal.z;
         
-        index += 6;
+        index += stride;
+    }
+    index = 6;
+    for (Vector3 texCoord : this->mesh.texCoords) {
+        vertices[index] = texCoord.x;
+        vertices[index + 1] = texCoord.y;
+        
+        index += stride;
     }
     
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -87,9 +124,10 @@ void Object::render() {
     
     shader.setMat4("modelMatrix", viewMatrix);
     shader.setMat4("perspectiveMatrix", perspectiveMatrix);
+
     
     glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, getMesh().vertices.size());
+    glDrawArrays(GL_TRIANGLES, 0, static_cast<GLuint>(getMesh().vertices.size()));
     
     glBindVertexArray(0);
 }

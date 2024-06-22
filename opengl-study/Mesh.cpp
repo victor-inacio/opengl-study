@@ -9,9 +9,10 @@
 #include <iostream>
 using namespace std;
 
-Mesh::Mesh(vector<Vector3>& vertices, vector<Vector3>& normals) {
+Mesh::Mesh(vector<Vector3>& vertices, vector<Vector3>& normals, vector<Vector3>& texCoords) {
     setVertices(vertices);
     setNormals(normals);
+    setTexCoords(texCoords);
     setIndices(indices);
 }
 
@@ -48,3 +49,6 @@ void Mesh::setNormals(const vector<Vector3> & normals) {
     this->normals = normals;
 }
 
+void Mesh::setTexCoords(const vector<Vector3> & texCoords) {
+    this->texCoords = texCoords;
+}

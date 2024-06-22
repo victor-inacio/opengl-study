@@ -17,6 +17,7 @@
 		98534A062C1A8F040073FD4E /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98534A042C1A8F040073FD4E /* Matrix4.cpp */; };
 		98534A092C1F896F0073FD4E /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98534A072C1F896F0073FD4E /* Camera.cpp */; };
 		9899CA012C156C40001EC642 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9899CA002C156C40001EC642 /* main.cpp */; };
+		98C4FAA72C267B8D001C047B /* image_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98C4FAA62C267B89001C047B /* image_loader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 		98534A052C1A8F040073FD4E /* Matrix4.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Matrix4.hpp; sourceTree = "<group>"; };
 		98534A072C1F896F0073FD4E /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		98534A082C1F896F0073FD4E /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		9870E7D32C2770A00032B312 /* stone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone.png; sourceTree = "<group>"; };
 		98991BF22C173E87001EC642 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		98991BF32C173E87001EC642 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		98991BF62C173FE5001EC642 /* vertex.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = vertex.sh; sourceTree = "<group>"; };
@@ -53,6 +55,8 @@
 		98991BFE2C18BAFC001EC642 /* Object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		98991BFF2C18BAFC001EC642 /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
 		9899CA002C156C40001EC642 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		98C4FAA62C267B89001C047B /* image_loader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = image_loader.cpp; sourceTree = "<group>"; };
+		98C4FAA82C267BF4001C047B /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 		9899C9FF2C156C40001EC642 /* opengl-study */ = {
 			isa = PBXGroup;
 			children = (
+				98C4FAAA2C267C56001C047B /* images */,
+				98C4FAA92C267BF4001C047B /* include */,
 				98991BF62C173FE5001EC642 /* vertex.sh */,
 				98991BF52C173FB6001EC642 /* shaders */,
 				9899CA002C156C40001EC642 /* main.cpp */,
@@ -118,6 +124,23 @@
 				98534A082C1F896F0073FD4E /* Camera.hpp */,
 			);
 			path = "opengl-study";
+			sourceTree = "<group>";
+		};
+		98C4FAA92C267BF4001C047B /* include */ = {
+			isa = PBXGroup;
+			children = (
+				98C4FAA82C267BF4001C047B /* stb_image.h */,
+				98C4FAA62C267B89001C047B /* image_loader.cpp */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		98C4FAAA2C267C56001C047B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9870E7D32C2770A00032B312 /* stone.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +202,7 @@
 			files = (
 				98534A032C1A45210073FD4E /* Mesh.cpp in Sources */,
 				98534A022C1A30E80073FD4E /* Object.cpp in Sources */,
+				98C4FAA72C267B8D001C047B /* image_loader.cpp in Sources */,
 				98534A092C1F896F0073FD4E /* Camera.cpp in Sources */,
 				98534A012C1A2D390073FD4E /* Shader.cpp in Sources */,
 				98534A062C1A8F040073FD4E /* Matrix4.cpp in Sources */,
