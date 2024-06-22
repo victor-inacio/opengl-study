@@ -71,6 +71,178 @@ Object::~Object() {
     glDeleteBuffers(2, array);
 }
 
+Object Object::cube(Shader shader) {
+    
+    vector<Vector3> vertices = {
+        
+        // Frente
+        Vector3(-0.5, 0.5, -0.5f),
+        Vector3(0.5, 0.5, -0.5f),
+        Vector3(-0.5, -0.5, -0.5f),
+        
+        Vector3(0.5, 0.5, -0.5f),
+        Vector3(0.5, -0.5, -0.5f),
+        Vector3(-0.5, -0.5, -0.5f),
+        
+        // Trás
+        Vector3(-0.5, 0.5, 0.5f),
+        Vector3(0.5, 0.5, 0.5f),
+        Vector3(-0.5, -0.5, 0.5f),
+        
+        Vector3(0.5, 0.5, 0.5f),
+        Vector3(0.5, -0.5, 0.5f),
+        Vector3(-0.5, -0.5, 0.5f),
+        
+        // Right
+        Vector3(0.5, 0.5, -0.5f),
+        Vector3(0.5, 0.5, 0.5f),
+        Vector3(0.5, -0.5, 0.5f),
+        
+        Vector3(0.5, 0.5, -0.5f),
+        Vector3(0.5, -0.5, 0.5f),
+        Vector3(0.5, -0.5, -0.5f),
+        
+        // Left
+        Vector3(-0.5, 0.5, -0.5f),
+        Vector3(-0.5, 0.5, 0.5f),
+        Vector3(-0.5, -0.5, 0.5f),
+        
+        Vector3(-0.5, 0.5, -0.5f),
+        Vector3(-0.5, -0.5, 0.5f),
+        Vector3(-0.5, -0.5, -0.5f),
+        
+        // Up
+        Vector3(-0.5, 0.5, 0.5f),
+        Vector3(0.5, 0.5, -0.5f),
+        Vector3(-0.5, 0.5, -0.5f),
+        
+        Vector3(-0.5, 0.5, 0.5f),
+        Vector3(0.5, 0.5, 0.5f),
+        Vector3(0.5, 0.5, -0.5f),
+        
+        // Bottom
+        Vector3(-0.5, -0.5, 0.5f),
+        Vector3(0.5, -0.5, -0.5f),
+        Vector3(-0.5, -0.5, -0.5f),
+        
+        Vector3(-0.5, -0.5, 0.5f),
+        Vector3(0.5, -0.5, 0.5f),
+        Vector3(0.5, -0.5, -0.5f),
+    };
+    
+    vector<Vector3> textureCoords = {
+        
+        // Frente
+        Vector3(0.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 1.0f, 0.0f),
+        Vector3(0.0f, 0.0f, 0.0f),
+        
+        Vector3(1.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 0.0f, 0.0f),
+        Vector3(0.0f, 0.0f, 0.0f),
+        
+        // Back
+        Vector3(0.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 1.0f, 0.0f),
+        Vector3(0.0f, 0.0f, 0.0f),
+        
+        Vector3(1.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 0.0f, 0.0f),
+        Vector3(0.0f, 0.0f, 0.0f),
+        
+        // Right
+        Vector3(0.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 0.0f, 0.0f),
+        
+        Vector3(0.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 0.0f, 0.0f),
+        Vector3(0.0f, 0.0f, 0.0f),
+        
+        // Left
+        Vector3(1.0f, 1.0f, 0.0f),
+        Vector3(0.0f, 1.0f, 0.0f),
+        Vector3(0.0f, 0.0f, 0.0f),
+        
+        Vector3(1.0f, 1.0f, 0.0f),
+        Vector3(0.0f, 0.0f, 0.0f),
+        Vector3(1.0f, 0.0f, 0.0f),
+        
+        // Up
+        Vector3(0.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 0.0f, 0.0f),
+        Vector3(0.0f, 0.0f, 0.0f),
+        
+        Vector3(0.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 0.0f, 0.0f),
+        
+        // Bottom
+        Vector3(1.0f, 0.0f, 0.0f),
+        Vector3(1.0f, 0.0f, 0.0f),
+        Vector3(0.0f, 0.0f, 0.0f),
+        
+        Vector3(1.0f, 0.0f, 0.0f),
+        Vector3(1.0f, 1.0f, 0.0f),
+        Vector3(1.0f, 0.0f, 0.0f),
+    };
+    
+    vector<Vector3> normals = {
+        Vector3(0, 0, -1.0f),
+        Vector3(0, 0, -1.0f),
+        Vector3(0, 0, -1.0f),
+        
+        Vector3(0, 0, -1.0f),
+        Vector3(0, 0, -1.0f),
+        Vector3(0, 0, -1.0f),
+        
+        Vector3(0, 0, 1.0f),
+        Vector3(0, 0, 1.0f),
+        Vector3(0, 0, 1.0f),
+        
+        Vector3(0, 0, 1.0f),
+        Vector3(0, 0, 1.0f),
+        Vector3(0, 0, 1.0f),
+        
+        Vector3(1.0, 0, 0),
+        Vector3(1.0, 0, 0),
+        Vector3(1.0, 0, 0),
+        
+        Vector3(1.0, 0, 0),
+        Vector3(1.0, 0, 0),
+        Vector3(1.0, 0, 0),
+        
+        Vector3(-1.0, 0, 0),
+        Vector3(-1.0, 0, 0),
+        Vector3(-1.0, 0, 0),
+        
+        Vector3(-1.0, 0, 0),
+        Vector3(-1.0, 0, 0),
+        Vector3(-1.0, 0, 0),
+        
+        Vector3(0, 1.0, 0),
+        Vector3(0, 1.0, 0),
+        Vector3(0, 1.0, 0),
+        
+        Vector3(0, 1.0, 0),
+        Vector3(0, 1.0, 0),
+        Vector3(0, 1.0, 0),
+        
+        Vector3(0, -1.0, 0),
+        Vector3(0, -1.0, 0),
+        Vector3(0, -1.0, 0),
+        
+        Vector3(0, -1.0, 0),
+        Vector3(0, -1.0, 0),
+        Vector3(0, -1.0, 0),
+    };
+    
+    Mesh mesh(vertices, normals, textureCoords);
+    Object object(mesh, shader);
+    
+    return object;
+}
+
 void Object::setShader(Shader& shader) {
     this->shader = shader;
 }
@@ -135,6 +307,7 @@ void Object::render() {
 Mesh& Object::getMesh() {
     return mesh;
 }
+
 
 
 

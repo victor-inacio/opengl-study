@@ -36,6 +36,7 @@ public:
     void setShader(Shader&);
     void setMesh(Mesh&);
     
+    static Object cube(Shader);
     
 private:
     Mesh mesh;
