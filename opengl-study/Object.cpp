@@ -1,12 +1,6 @@
-//
-//  Object.cpp
-//  opengl-study
-//
-//  Created by Victor Soares on 11/06/24.
-//
-
 #include "Object.hpp"
 #include "include/stb_image.h"
+
 #include <iostream>
 using namespace std;
 Object::Object(Mesh mesh, Shader& shader): mesh(mesh), shader(shader) {
@@ -22,30 +16,6 @@ Object::Object(Mesh mesh, Shader& shader): mesh(mesh), shader(shader) {
     
     glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    
-    unsigned int texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
-    
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    
-    
-    
-    int width, height, channels;
-    unsigned char* data = stbi_load("images/stone.png", &width, &height, &channels, 0);
-    
-    if (data) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    } else {
-        cout << "Error when loading texture" << endl;
-    }
-    
-    stbi_image_free(data);
     
     GLsizei stride = 8 * sizeof(float);
     
@@ -178,11 +148,11 @@ Object Object::cube(Shader shader) {
         Vector3(1.0f, 0.0f, 0.0f),
         
         // Bottom
-        Vector3(1.0f, 0.0f, 0.0f),
+        Vector3(0.0f, 1.0f, 0.0f),
         Vector3(1.0f, 0.0f, 0.0f),
         Vector3(0.0f, 0.0f, 0.0f),
         
-        Vector3(1.0f, 0.0f, 0.0f),
+        Vector3(0.0f, 1.0f, 0.0f),
         Vector3(1.0f, 1.0f, 0.0f),
         Vector3(1.0f, 0.0f, 0.0f),
     };
@@ -292,11 +262,14 @@ void Object::setMesh(Mesh& mesh) {
 }
 
 void Object::render() {
-    shader.use();
+    if (texture) {
+        texture->bind();
+    }
     
+    shader.use();
+
     shader.setMat4("modelMatrix", viewMatrix);
     shader.setMat4("perspectiveMatrix", perspectiveMatrix);
-
     
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, static_cast<GLuint>(getMesh().vertices.size()));
@@ -308,13 +281,6 @@ Mesh& Object::getMesh() {
     return mesh;
 }
 
-
-
-
-
-
-
-
-
-
-
+void Object::setTexture(const Texture& tex) {
+    this->texture = tex;
+}
