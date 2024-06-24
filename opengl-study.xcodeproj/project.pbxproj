@@ -18,6 +18,7 @@
 		98534A092C1F896F0073FD4E /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98534A072C1F896F0073FD4E /* Camera.cpp */; };
 		9870E7D62C2792F40032B312 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9870E7D42C2792F40032B312 /* Texture.cpp */; };
 		9899CA012C156C40001EC642 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9899CA002C156C40001EC642 /* main.cpp */; };
+		98B9382D2C2A0D460038318B /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98B9382B2C2A0D460038318B /* Transform.cpp */; };
 		98C4FAA72C267B8D001C047B /* image_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98C4FAA62C267B89001C047B /* image_loader.cpp */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,8 @@
 		98991BFE2C18BAFC001EC642 /* Object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		98991BFF2C18BAFC001EC642 /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
 		9899CA002C156C40001EC642 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		98B9382B2C2A0D460038318B /* Transform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
+		98B9382C2C2A0D460038318B /* Transform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Transform.hpp; sourceTree = "<group>"; };
 		98C4FAA62C267B89001C047B /* image_loader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = image_loader.cpp; sourceTree = "<group>"; };
 		98C4FAA82C267BF4001C047B /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 				98534A082C1F896F0073FD4E /* Camera.hpp */,
 				9870E7D42C2792F40032B312 /* Texture.cpp */,
 				9870E7D52C2792F40032B312 /* Texture.hpp */,
+				98B9382B2C2A0D460038318B /* Transform.cpp */,
+				98B9382C2C2A0D460038318B /* Transform.hpp */,
 			);
 			path = "opengl-study";
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B9382D2C2A0D460038318B /* Transform.cpp in Sources */,
 				98534A032C1A45210073FD4E /* Mesh.cpp in Sources */,
 				98534A022C1A30E80073FD4E /* Object.cpp in Sources */,
 				98C4FAA72C267B8D001C047B /* image_loader.cpp in Sources */,
