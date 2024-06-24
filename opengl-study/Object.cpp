@@ -4,8 +4,7 @@
 #include <iostream>
 using namespace std;
 Object::Object(Mesh mesh, Shader& shader): mesh(mesh), shader(shader) {
-    
-    viewMatrix = Matrix4::identity();
+
     perspectiveMatrix = Matrix4::identity();
     
     glGenVertexArrays(1, &VAO);
@@ -268,7 +267,9 @@ void Object::render() {
     
     shader.use();
 
-    shader.setMat4("modelMatrix", viewMatrix);
+    Matrix4 modelMatrix = getModelMatrix();
+    
+    shader.setMat4("modelMatrix", modelMatrix);
     shader.setMat4("perspectiveMatrix", perspectiveMatrix);
     
     glBindVertexArray(VAO);
@@ -283,4 +284,18 @@ Mesh& Object::getMesh() {
 
 void Object::setTexture(const Texture& tex) {
     this->texture = tex;
+}
+
+Matrix4 Object::getModelMatrix() const {
+    Matrix4 translate = Matrix4::translate(transform.position);
+    
+    Matrix4 rotX = Matrix4::rotateX(transform.rotation.x);
+    Matrix4 rotY = Matrix4::rotateY(transform.rotation.y);
+    Matrix4 rotZ = Matrix4::rotateZ(transform.rotation.z);
+    
+    Matrix4 rotation = rotX * rotY * rotZ;
+    
+    Matrix4 scale = Matrix4::scale(transform.scale);
+    
+    return translate * scale * rotation;
 }

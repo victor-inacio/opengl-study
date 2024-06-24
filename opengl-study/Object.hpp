@@ -12,22 +12,21 @@
 #include "Shader.hpp"
 #include "Matrix4.hpp"
 #include "Texture.hpp"
+#include "Transform.hpp"
 #include <GLFW/glfw3.h>
 #include <OpenGL/gl.h>
 #include <optional>
 
-
 class Object {
     
 public:
-   
     Shader shader;
     GLuint VAO;	
     GLuint VBO;
     GLuint EBO;
-    
-    Matrix4 viewMatrix;
+
     Matrix4 perspectiveMatrix;
+    Transform transform = Transform();
     
     optional<Texture> texture;
     
@@ -40,6 +39,8 @@ public:
     void setShader(Shader&);
     void setMesh(Mesh&);
     void setTexture(const Texture&);
+    
+    Matrix4 getModelMatrix() const;
     
     static Object cube(Shader);
     
