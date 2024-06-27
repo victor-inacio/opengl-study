@@ -26,6 +26,7 @@ public:
     GLuint EBO;
 
     Matrix4 perspectiveMatrix;
+    Matrix4 viewMatrix;
     Transform transform = Transform();
     
     optional<Texture> texture;

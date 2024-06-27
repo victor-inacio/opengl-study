@@ -271,6 +271,8 @@ void Object::render() {
     
     shader.setMat4("modelMatrix", modelMatrix);
     shader.setMat4("perspectiveMatrix", perspectiveMatrix);
+    shader.setMat4("viewMatrix", viewMatrix);
+    
     
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, static_cast<GLuint>(getMesh().vertices.size()));
