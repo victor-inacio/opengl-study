@@ -6,6 +6,7 @@ layout (location = 2) in vec2 aTexCoord;
 
 uniform mat4 modelMatrix;
 uniform mat4 perspectiveMatrix;
+uniform mat4 viewMatrix;
 
 out vec3 outNormal;
 out vec4 color;
@@ -15,7 +16,7 @@ void main() {
     outNormal = normal;
     TexCoord = aTexCoord;
     color = vec4(normal, 1.0);
-    mat4 MVP = perspectiveMatrix * modelMatrix;
+    mat4 MVP = perspectiveMatrix * viewMatrix * modelMatrix;
     
     vec4 newPos = MVP * vec4(aPos, 1.0f);
     gl_Position = newPos;
