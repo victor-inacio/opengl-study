@@ -160,6 +160,14 @@ Vector3 Vector3::operator-(Vector3 other) {
     return (temp -= other);
 }
 
+Vector3 Vector3::operator-() {
+    return Vector3(-x, -y, -z);
+}
+
+Vector3 Vector3::operator-() const {
+    return Vector3(-x, -y, -z);
+}
+
 Vector3 Vector3::operator-(float scalar) {
     Vector3 temp(*this);
     
