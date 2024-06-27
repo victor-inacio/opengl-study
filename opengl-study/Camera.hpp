@@ -9,14 +9,17 @@
 #define Camera_hpp
 
 #include "Matrix4.hpp"
-
+#include "Transform.hpp"
 class Camera {
     
 public:
     float fov, zNear, zFar;
     Camera(float,float,float);
     
+    Transform transform = Transform();
+    
     Matrix4 perspectiveMatrix() const;
+    Matrix4 viewMatrix() const;
     
 private:
     
