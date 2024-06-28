@@ -35,6 +35,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		981764502C2E09DF00EAAA1F /* cherry_leaves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cherry_leaves.png; sourceTree = "<group>"; };
 		985349F32C1A1FEB0073FD4E /* opengl-study */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "opengl-study"; sourceTree = BUILT_PRODUCTS_DIR; };
 		985349F62C1A256B0073FD4E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		985349F82C1A25700073FD4E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -148,6 +149,7 @@
 		98C4FAAA2C267C56001C047B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				981764502C2E09DF00EAAA1F /* cherry_leaves.png */,
 				9870E7D32C2770A00032B312 /* stone.png */,
 			);
 			path = images;

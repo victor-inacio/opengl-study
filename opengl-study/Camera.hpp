@@ -16,6 +16,8 @@ public:
     float fov, zNear, zFar;
     Camera(float,float,float);
     
+    int width, height;
+    
     Transform transform = Transform();
     
     Matrix4 perspectiveMatrix() const;
